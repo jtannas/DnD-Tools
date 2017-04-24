@@ -131,9 +131,9 @@ def feed_list_into_dict(mylist, mydict, start_key=None):
     for value in list(mylist):
         if value in mydict:
             key = value
-            # mydict[key] = []  # This is needed because...
         elif key is not None:
-            mydict[key] = [] if mydict[key] is None else mydict[key]
+            if mydict[key] is None:
+                mydict[key] = []
             mydict[key] += [value]
 
     for key in mydict.keys():
